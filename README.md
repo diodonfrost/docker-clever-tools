@@ -1,5 +1,9 @@
 # Clever Tools Docker Image
 
+[![Build](https://github.com/diodonfrost/docker-clever-tools/actions/workflows/build.yml/badge.svg)](https://github.com/diodonfrost/docker-clever-tools/actions/workflows/build.yml)
+[![Push](https://github.com/diodonfrost/docker-clever-tools/actions/workflows/push.yml/badge.svg)](https://github.com/diodonfrost/docker-clever-tools/actions/workflows/push.yml)
+[![Registry](https://img.shields.io/docker/v/diodonfrost/clever-tools.svg)](https://hub.docker.com/repository/docker/diodonfrost/clever-tools)
+
 This is a lightweight Docker image intended to be used mostly in CI environment
 with some extra packages installed
 
