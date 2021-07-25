@@ -28,14 +28,15 @@ RUN apt-get update && apt-get install -y \
     ssh
 
 RUN \
-    mkdir -p /tmp/fakeroot/lib  && \
+    mkdir -p /tmp/fakeroot/lib && \
     cp $(ldd /usr/bin/git | grep -o '/.\+\.so[^ ]*' | sort | uniq) /tmp/fakeroot/lib && \
     cp $(ldd /usr/bin/ssh | grep -o '/.\+\.so[^ ]*' | sort | uniq) /tmp/fakeroot/lib && \
     for lib in /tmp/fakeroot/lib/*; do strip --strip-all $lib; done && \
     mkdir -p /tmp/fakeroot/bin/ && \
+    mkdir -p /tmp/fakeroot/usr/lib/ && \
     cp /usr/bin/git /tmp/fakeroot/bin/ && \
+    cp -r /usr/lib/git-core/ /tmp/fakeroot/usr/lib/ && \
     cp /usr/bin/ssh /tmp/fakeroot/bin/
-
 
 FROM busybox:glibc AS release
 
